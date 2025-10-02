@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class SuperMarket {
@@ -21,4 +22,14 @@ public class SuperMarket {
             System.err.println("You cannot buy " + amount + " " + product.name + ", we have only " + product.amount + " " + product.name + " in stock");
         }
     }
+    public void restockItem (String productName, int amount) {
+        for (Product product : this.products) {
+            if (product.name.equalsIgnoreCase(productName)) {
+                product.amount += amount;
+                return;
+            }
+        }
+        System.out.println("Unable to restock. Item not available in this supermarket");
+    }
+
 }
