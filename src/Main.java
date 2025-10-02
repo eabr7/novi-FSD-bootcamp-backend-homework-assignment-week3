@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -40,7 +41,17 @@ public class Main {
 
 // ----------------------------------------------------------------------------------------------
 
-        SuperMarket superMarket = new SuperMarket(bread, fruit, toiletPaper, cheese);
+        ArrayList<Product> productsHalbertEijn = new ArrayList<>();
+        ArrayList<Product> productsDumbo = new ArrayList<>();
+        ArrayList<Product> productsCaldi = new ArrayList<>();
+
+        HashMap<String, SuperMarket> allMarkets = new HashMap<>();
+        allMarkets.put("halbert eijn", new SuperMarket("Halbert Eijn", productsHalbertEijn));
+        allMarkets.put("dumbo",        new SuperMarket("Dumbo",        productsDumbo));
+        allMarkets.put("caldi",        new SuperMarket("Caldi",        productsCaldi));
+
+// ----------------------------------------------------------------------------------------------
+
         Customer customer = new Customer("Customer");
 
         Scanner scanner = new Scanner(System.in);
