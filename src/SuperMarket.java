@@ -1,45 +1,18 @@
-public class SuperMarket {
-    Product bread;
-    Product fruit;
-    Product toiletPaper;
-    Product cheese;
+import java.util.ArrayList;
 
-//        Dit is de simpele constructor zonder null checks
-    public SuperMarket(Product bread, Product fruit, Product toiletPaper, Product cheese) {
-        this.bread = bread;
-        this.fruit = fruit;
-        this.toiletPaper = toiletPaper;
-        this.cheese = cheese;
+public class SuperMarket {
+    ArrayList<Product> products;
+
+    public SuperMarket(ArrayList<Product> products) {
+        if (products == null) {
+            this.products = new ArrayList<>();
+        } else {
+            this.products = products;
+        }
     }
 
-////      Dit is de BONUS constructor waar geen null-producten kunnen worden gemaakt.
-//    public SuperMarket(Product bread, Product fruit, Product toiletPaper, Product cheese) {
-//
-//            Product fake = new Product("fake", 0, 0);
-//        if(bread == null){
-//            this.bread = fake;
-//        } else {
-//            this.bread = bread;
-//        }
-//
-//        if(fruit == null){
-//            this.fruit = fake;
-//        } else {
-//            this.fruit = fruit;
-//        }
-//
-//        if(toiletPaper == null){
-//            this.toiletPaper = fake;
-//        } else {
-//            this.toiletPaper = toiletPaper;
-//        }
-//
-//        if(cheese == null){
-//            this.cheese = fake;
-//        } else {
-//            this.cheese = cheese;
-//        }
-//    }
+
+    // ----------------------------------------------
 
     public void buyBread(int amount){
         buyItem(this.bread, amount);
