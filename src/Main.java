@@ -38,7 +38,6 @@ public class Main {
         fruit.add(cheese);
         fruit.add(butter);
 
-
 // ----------------------------------------------------------------------------------------------
 
         ArrayList<Product> productsHalbertEijn = new ArrayList<>();

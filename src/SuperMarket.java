@@ -13,26 +13,6 @@ public class SuperMarket {
         this.name = name;
     }
 
-
-    // ----------------------------------------------
-
-    public void buyBread(int amount){
-        buyItem(this.bread, amount);
-    }
-
-    public void buyFruit(int amount){
-        buyItem(this.fruit, amount);
-    }
-
-    public void buyToiletPaper(int amount){
-        buyItem(this.toiletPaper, amount);
-    }
-
-    public void buyCheese(int amount){
-        buyItem(this.cheese, amount);
-    }
-
-
     public void buyItem(Product product, int amount) {
         if (product.amount >= amount) {
             product.amount -= amount;
@@ -41,6 +21,4 @@ public class SuperMarket {
             System.err.println("You cannot buy " + amount + " " + product.name + ", we have only " + product.amount + " " + product.name + " in stock");
         }
     }
-
-
 }
