@@ -1,62 +1,18 @@
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+
 public class SuperMarket {
-    Product bread;
-    Product fruit;
-    Product toiletPaper;
-    Product cheese;
+    ArrayList<Product> products;
+    String name;
 
-//        Dit is de simpele constructor zonder null checks
-    public SuperMarket(Product bread, Product fruit, Product toiletPaper, Product cheese) {
-        this.bread = bread;
-        this.fruit = fruit;
-        this.toiletPaper = toiletPaper;
-        this.cheese = cheese;
+    public SuperMarket(String name, ArrayList<Product> products) {
+        if (products == null) {
+            this.products = new ArrayList<>();
+        } else {
+            this.products = products;
+        }
+        this.name = name;
     }
-
-////      Dit is de BONUS constructor waar geen null-producten kunnen worden gemaakt.
-//    public SuperMarket(Product bread, Product fruit, Product toiletPaper, Product cheese) {
-//
-//            Product fake = new Product("fake", 0, 0);
-//        if(bread == null){
-//            this.bread = fake;
-//        } else {
-//            this.bread = bread;
-//        }
-//
-//        if(fruit == null){
-//            this.fruit = fake;
-//        } else {
-//            this.fruit = fruit;
-//        }
-//
-//        if(toiletPaper == null){
-//            this.toiletPaper = fake;
-//        } else {
-//            this.toiletPaper = toiletPaper;
-//        }
-//
-//        if(cheese == null){
-//            this.cheese = fake;
-//        } else {
-//            this.cheese = cheese;
-//        }
-//    }
-
-    public void buyBread(int amount){
-        buyItem(this.bread, amount);
-    }
-
-    public void buyFruit(int amount){
-        buyItem(this.fruit, amount);
-    }
-
-    public void buyToiletPaper(int amount){
-        buyItem(this.toiletPaper, amount);
-    }
-
-    public void buyCheese(int amount){
-        buyItem(this.cheese, amount);
-    }
-
 
     public void buyItem(Product product, int amount) {
         if (product.amount >= amount) {
@@ -66,6 +22,14 @@ public class SuperMarket {
             System.err.println("You cannot buy " + amount + " " + product.name + ", we have only " + product.amount + " " + product.name + " in stock");
         }
     }
-
+    public void restockItem (String productName, int amount) {
+        for (Product product : this.products) {
+            if (product.name.equalsIgnoreCase(productName)) {
+                product.amount += amount;
+                return;
+            }
+        }
+        System.out.println("Unable to restock. Item not available in this supermarket");
+    }
 
 }
